@@ -1,0 +1,51 @@
+.stats{
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+margin:20px 0;
+
+flex-wrap:wrap;
+
+}
+
+.box{
+
+width:180px;
+
+background:white;
+
+padding:20px;
+
+border-radius:15px;
+
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+transition:.3s;
+
+text-align:center;
+
+}
+
+.box:hover{
+
+transform:translateY(-5px);
+
+}
+
+.box h2{
+
+font-size:40px;
+
+}
+
+.box h3{
+
+margin:10px 0;
+
+color:#0d6efd;
+
+}
