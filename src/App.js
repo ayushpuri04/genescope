@@ -1,10 +1,12 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
-import SearchBar from "./components/SearchBar";
-import GeneCard from "./components/GeneCard";
-import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Stats from "./components/Stats";
+import SearchBar from "./components/SearchBar";
+import GeneCard from "./components/GeneCard";
+import ProteinViewer from "./components/ProteinViewer";
+import ResearchPapers from "./components/ResearchPapers";
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
@@ -14,22 +16,27 @@ function App() {
   const [error, setError] = useState("");
 
   return (
-  <div className="App">
+    <div className="App">
       <Navbar />
-<Home />
-<Stats />
-       <SearchBar
-setGeneData={setGeneData}
-setLoading={setLoading}
-setError={setError}
-setGeneName={setGeneName}
-/>
-{loading && (
-  <div className="loader-container">
-    <div className="loader"></div>
-    <p>Searching...</p>
-  </div>
-)}
+
+      <Home />
+
+      <Stats />
+
+      <SearchBar
+        setGeneData={setGeneData}
+        setLoading={setLoading}
+        setError={setError}
+        setGeneName={setGeneName}
+      />
+
+      {loading && (
+        <div className="loader-container">
+          <div className="loader"></div>
+          <p>Searching...</p>
+        </div>
+      )}
+
       {error && (
         <div
           style={{
@@ -46,7 +53,7 @@ setGeneName={setGeneName}
               borderRadius: "10px",
               fontSize: "22px",
               fontWeight: "bold",
-              boxShadow: "0 2px 10px rgba(0,0,0,0.15)",
+              boxShadow: "0 2px 10px rgba(0, 0, 0, 0.15)",
             }}
           >
             ❌ {error}
@@ -54,10 +61,23 @@ setGeneName={setGeneName}
         </div>
       )}
 
-      {geneData && <GeneCard
-geneData={geneData}
-geneName={geneName}
-/>}
+      {geneData && (
+        <>
+          <GeneCard
+            geneData={geneData}
+            geneName={geneName}
+          />
+
+          <ProteinViewer
+            geneName={geneName}
+          />
+
+          <ResearchPapers
+            geneName={geneName}
+          />
+        </>
+      )}
+
       <Footer />
     </div>
   );

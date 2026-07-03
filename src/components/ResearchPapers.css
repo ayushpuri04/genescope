@@ -1,0 +1,9 @@
+.gene-card a {
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.gene-card a:hover {
+  text-decoration: underline;
+}
